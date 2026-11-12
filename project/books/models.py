@@ -15,3 +15,13 @@ class Book(models.Model):
     #     verbose_name = 'Kitob'
     #     verbose_name_plural = 'Kitoblar'
     
+class Students(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+    group = models.CharField(max_length=100)
+    phone = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+    
+    

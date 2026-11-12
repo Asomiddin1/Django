@@ -1,0 +1,12 @@
+<!Doctype>
+<html>
+    <head>
+        <title>Salom</title>
+    </head>
+    <body>
+        <h1>Assalomu alaykum</h1>
+        {% for student in students %}
+        <p>Ismi - {{ student.name }} , {{ student.age }}</p>
+        {% endfor %}
+    </body>
+</html> 
