@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talabalar ro'yxati</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">
+                Talabalar ro'yxati
+            </h1>
+            <a href="{% url 'home' %}" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm transition">
+                Bosh sahifa
+            </a>
+        </div>
+
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-50 border-b border-gray-200">
+                    <tr>
+                        <th class="px-6 py-3 text-xs font-semibold uppercase text-gray-600">Ismi</th>
+                        <th class="px-6 py-3 text-xs font-semibold uppercase text-gray-600">Yoshi</th>
+                        <th class="px-6 py-3 text-xs font-semibold uppercase text-gray-600">Email</th>
+                        <th class="px-6 py-3 text-xs font-semibold uppercase text-gray-600">Qabul sanasi</th>
+                        <th class="px-6 py-3 text-xs font-semibold uppercase text-gray-600 text-center">Harakat</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    {% for student in students %}
+                    <tr class="hover:bg-gray-50 transition">
+                        <td class="px-6 py-4 font-medium text-gray-900">
+                            <a href="{% url 'student_detail' student.id %}" class="text-blue-600 hover:text-blue-800 hover:underline">
+                                {{ student.name }}
+                            </a>
+                        </td>
+                        <td class="px-6 py-4 text-gray-600">{{ student.age }}</td>
+                        <td class="px-6 py-4 text-gray-600">{{ student.email }}</td>
+                        <td class="px-6 py-4 text-gray-600">{{ student.enrollment_date }}</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="{% url 'student_detail' student.id %}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-3 py-1.5 rounded transition">
+                                Batafsil &rarr;
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="px-6 py-8 text-center text-red-500">
+                            Talabalar mavjud emas.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

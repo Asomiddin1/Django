@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ student.name }} - Talaba ma'lumotlari</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-2xl mx-auto">
+        <div class="mb-6 flex gap-4">
+            <a href="{% url 'student_list' %}" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                &larr; Talabalar ro'yxatiga qaytish
+            </a>
+            <span class="text-gray-400">|</span>
+            <a href="{% url 'home' %}" class="inline-flex items-center text-gray-600 hover:text-gray-800">
+                Bosh sahifa
+            </a>
+        </div>
+
+        <div class="bg-white shadow rounded-lg p-6">
+            <h1 class="text-2xl font-bold text-gray-800 border-b pb-4 mb-4">
+                Talaba ma'lumotlari
+            </h1> 
+            <div class="space-y-3">
+                <p class="text-base text-gray-700">
+                    <strong class="font-semibold text-gray-900 w-36 inline-block">Ismi:</strong> 
+                    <span>{{ student.name }}</span>
+                </p>
+                <p class="text-base text-gray-700">
+                    <strong class="font-semibold text-gray-900 w-36 inline-block">Yoshi:</strong> 
+                    <span>{{ student.age }}</span>
+                </p>
+                <p class="text-base text-gray-700">
+                    <strong class="font-semibold text-gray-900 w-36 inline-block">Email:</strong> 
+                    <a href="mailto:{{ student.email }}" class="text-blue-600 hover:underline">{{ student.email }}</a>
+                </p>
+                <p class="text-base text-gray-700">
+                    <strong class="font-semibold text-gray-900 w-36 inline-block">Qabul sanasi:</strong> 
+                    <span>{{ student.enrollment_date }}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
