@@ -39,9 +39,12 @@
                         <td class="px-6 py-4 text-gray-600">{{ student.age }}</td>
                         <td class="px-6 py-4 text-gray-600">{{ student.email }}</td>
                         <td class="px-6 py-4 text-gray-600">{{ student.enrollment_date }}</td>
-                        <td class="px-6 py-4 text-center">
+                        <td class="px-6 py-4 text-center space-x-2">
                             <a href="{% url 'student_detail' student.id %}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-3 py-1.5 rounded transition">
                                 Batafsil &rarr;
+                            </a>
+                            <a href="{% url 'student_edit' student.id %}" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white text-xs font-semibold px-3 py-1.5 rounded transition">
+                                Tahrirlash
                             </a>
                         </td>
                     </tr>
@@ -56,5 +59,9 @@
             </table>
         </div>
     </div>
+    <div class="flex justify-center py-10">
+        <a class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm transition" href="{% url 'add_student' %}">Yangi talaba qo'shish</a>
+    </div>
+
 </body>
 </html>
